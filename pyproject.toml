@@ -1,0 +1,30 @@
+[project]
+name = "s3ctl"
+version = "0.1.0"
+description = "Small custom CLI utility for basic Amazon S3 / S3-compatible storage operations."
+readme = "README.md"
+authors = [
+    { name = "Pavel Asinski", email = "pawel.asinski@gmail.com" }
+]
+requires-python = ">=3.14.8"
+dependencies = [
+    "boto3>=1.43.110",
+    "rich>=15.0.0",
+]
+
+[project.scripts]
+s3ctl = "s3ctl.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12.24,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.10",
+]
+
+[tool.pytest]
+testpaths = ["tests"]
+addopts = ["--import-mode=importlib", "-q"]
